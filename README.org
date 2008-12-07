@@ -1,0 +1,80 @@
+README.org --- description
+
+
+
+Copyright (C) 2008 Roman V. Prikhodchenko chujoii@gmail.com
+
+
+
+Author: Roman V. Prikhodchenko <chujoii@gmail.com>
+
+
+
+  This file is part of jsmath.
+  
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+* Keywords:
+  smooth approximation peak search graph js java script jquery flot
+
+
+
+* Description:
+  
+
+* Usage:
+  use it
+
+
+
+* History:
+  Initial project version began about 2008-12(Dec)-07
+
+
+** flot newsgroups "Proposal : Smoothing lines"
+  https://groups.google.com/forum/?fromgroups#!topic/flot-graphs/Ug4wvfE5XYk
+  
+*** chujoii [2008-12-07]
+
+I recently create a javascript version of approximation by polynomials.
+Library supports: approximation (smooth), interpolation, and the
+search for peaks.
+(search peak: In the data search area exceeds noise level.
+Noised peak smoothed by parabolic. Coordinates of real peak ==
+coordinates of parabola.)
+I think it would be useful to add it to the flot.
+
+example and library:
+http://chujoii.googlepages.com/approximation.js
+http://chujoii.googlepages.com/approximation.html
+http://chujoii.googlepages.com/autosearchpeak.html
+http://chujoii.googlepages.com/manualsearchpeak.html       (click -
+show approximation)
+
+
+md5sum:
+ccdfc18e356150b230b9bfd2cf49b65a  approximation.js
+418a753f0cb9fdad63893098605db98c  examples/approximation.html
+eb6b6855fbf5b944379cbb1221134830  examples/autosearchpeak.html
+2e005ea2c3d930d19e34148e24a424da  examples/manualsearchpeak.html
+
+Sorry for my English (o_o')
+
+thanks (^_^)
+
+
+--
+Roman V. Prikhodchenko  (aka chujoii)
+
+ 
+
+
+
+* Dependences:
+  
+
