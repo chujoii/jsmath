@@ -201,6 +201,9 @@ function paraboloidpeak(data, searchx, peakwidth)
 	var matrix = [];
 	matrix = Gaussian_elimination(GramMatrix(area, 2));
 	//matrix = GramMatrixForParabola(area);
+	a = matrix[0];
+	b = matrix[1];
+	c = matrix[2];
 	var x = -b/(2.0*c);
 	var y = a + b*x + c*x*x;
 
@@ -296,6 +299,7 @@ function searchPeak(data, yNoise, peakwidth)
 		peakcoord = paraboloidpeak(data, cur[0], peakwidth);
 		listPeaks.push([peakcoord[0], peakcoord[1]]);
 	}
+	
 	return listPeaks;
 }
 
