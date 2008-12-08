@@ -1,0 +1,342 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Flot Examples</title>
+    <link href="layout.css" rel="stylesheet" type="text/css"></link>
+    <!--[if IE]><script language="javascript" type="text/javascript" src="../excanvas.pack.js"></script><![endif]-->
+    <script language="javascript" type="text/javascript" src="jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="jquery.flot.js"></script>
+    <script language="javascript" type="text/javascript" src="approximation.js"></script>
+ </head>
+    <body>
+    <h1>Flot Examples</h1>
+
+    <div id="placeholder" style="width:600px;height:300px"></div>
+
+    <p>One of the goals of Flot is to support user interactions. Try
+    pointing and clicking on the points.</p>
+
+    <p id="hoverdata">Mouse hovers at
+    (<span id="x">0</span>, <span id="y">0</span>). 
+      Peak: (<span id="peakx">0</span>, <span id="peaky">0</span>)
+      <span id="clickdata"></span></p>
+
+    <p>A tooltip is easy to build with a bit of jQuery code and the
+    data returned from the plot.</p>
+
+    <p><input id="enableTooltip" type="checkbox">Enable tooltip</p>
+
+<script id="source" language="javascript" type="text/javascript">
+$(function () {
+    var sin = [], cos = [];
+    for (var i = 0; i < 14; i += 0.5) {
+        cos.push([i, Math.cos(i)]);
+    }
+var peakwidth = 5; //half width
+var peakx, peaky;
+var parabola = [];
+var a, b, c;
+var peakcoord = [];
+
+var data = [];
+    var data = [
+[  0.0, 0.78],
+[  1.0, 0.76],
+[  2.0, 0.72],
+[  3.0, 0.71],
+[  4.0, 0.64],
+[  5.0, 0.64],
+[  6.0, 0.60],
+[  7.0, 0.55],
+[  8.0, 0.55],
+[  9.0, 0.52],
+[ 10.0, 0.50],
+[ 11.0, 0.54],
+[ 12.0, 0.54],
+[ 13.0, 0.49],
+[ 14.0, 0.50],
+[ 15.0, 0.49],
+[ 16.0, 0.51],
+[ 17.0, 0.46],
+[ 18.0, 0.51],
+[ 19.0, 0.46],
+[ 20.0, 0.48],
+[ 21.0, 0.48],
+[ 22.0, 0.49],
+[ 23.0, 0.48],
+[ 24.0, 0.45],
+[ 25.0, 0.46],
+[ 26.0, 0.48],
+[ 27.0, 0.48],
+[ 28.0, 0.49],
+[ 29.0, 0.50],
+[ 30.0, 0.49],
+[ 31.0, 0.52],
+[ 32.0, 0.54],
+[ 33.0, 0.57],
+[ 34.0, 0.58],
+[ 35.0, 0.60],
+[ 36.0, 0.59],
+[ 37.0, 0.67],
+[ 38.0, 0.64],
+[ 39.0, 0.70],
+[ 40.0, 0.71],
+[ 41.0, 0.82],
+[ 42.0, 0.81],
+[ 43.0, 0.85],
+[ 44.0, 0.94],
+[ 45.0, 0.97],
+[ 46.0, 1.04],
+[ 47.0, 1.19],
+[ 48.0, 1.21],
+[ 49.0, 1.16],
+[ 50.0, 1.14],
+[ 51.0, 1.10],
+[ 52.0, 1.06],
+[ 53.0, 0.96],
+[ 54.0, 0.97],
+[ 55.0, 0.99],
+[ 56.0, 0.95],
+[ 57.0, 0.93],
+[ 58.0, 1.06],
+[ 59.0, 0.98],
+[ 60.0, 1.03],
+[ 61.0, 1.10],
+[ 62.0, 1.19],
+[ 63.0, 1.19],
+[ 64.0, 1.27],
+[ 65.0, 1.25],
+[ 66.0, 1.26],
+[ 67.0, 1.23],
+[ 68.0, 1.13],
+[ 69.0, 1.05],
+[ 70.0, 0.98],
+[ 71.0, 0.91],
+[ 72.0, 0.88],
+[ 73.0, 0.79],
+[ 74.0, 0.75],
+[ 75.0, 0.72],
+[ 76.0, 0.68],
+[ 77.0, 0.68],
+[ 78.0, 0.59],
+[ 79.0, 0.61],
+[ 80.0, 0.58],
+[ 81.0, 0.55],
+[ 82.0, 0.54],
+[ 83.0, 0.48],
+[ 84.0, 0.50],
+[ 85.0, 0.49],
+[ 86.0, 0.49],
+[ 87.0, 0.49],
+[ 88.0, 0.50],
+[ 89.0, 0.46],
+[ 90.0, 0.49],
+[ 91.0, 0.48],
+[ 92.0, 0.45],
+[ 93.0, 0.48],
+[ 94.0, 0.46],
+[ 95.0, 0.48],
+[ 96.0, 0.46],
+[ 97.0, 0.47],
+[ 98.0, 0.48],
+[ 99.0, 0.45],
+[100.0, 0.48],
+[101.0, 0.43],
+[102.0, 0.46],
+[103.0, 0.46],
+[104.0, 0.47],
+[105.0, 0.48],
+[106.0, 0.48],
+[107.0, 0.53],
+[108.0, 0.55],
+[109.0, 0.59],
+[110.0, 0.55],
+[111.0, 0.64],
+[112.0, 0.66],
+[113.0, 0.67],
+[114.0, 0.70],
+[115.0, 0.78],
+[116.0, 0.82],
+[117.0, 0.86],
+[118.0, 0.99],
+[119.0, 1.03],
+[120.0, 1.15],
+[121.0, 1.23],
+[122.0, 1.25],
+[123.0, 1.26],
+[124.0, 1.25],
+[125.0, 1.13],
+[126.0, 1.06],
+[127.0, 1.07],
+[128.0, 1.02],
+[129.0, 1.05],
+[130.0, 1.06],
+[131.0, 1.05],
+[132.0, 0.98],
+[133.0, 1.05],
+[134.0, 1.08],
+[135.0, 1.16],
+[136.0, 1.16],
+[137.0, 1.21],
+[138.0, 1.20],
+[139.0, 1.20],
+[140.0, 1.21],
+[141.0, 1.08],
+[142.0, 1.02],
+[143.0, 0.93],
+[144.0, 0.83],
+[145.0, 0.79],
+[146.0, 0.80],
+[147.0, 0.71],
+[148.0, 0.69],
+[149.0, 0.64],
+[150.0, 0.60],
+[151.0, 0.60],
+[152.0, 0.53],
+[153.0, 0.54],
+[154.0, 0.58],
+[155.0, 0.51],
+[156.0, 0.50],
+[157.0, 0.49],
+[158.0, 0.51],
+[159.0, 0.54],
+[160.0, 0.50],
+[161.0, 0.46],
+[162.0, 0.46],
+[163.0, 0.41],
+[164.0, 0.47],
+[165.0, 0.45],
+[166.0, 0.45],
+[167.0, 0.49],
+[168.0, 0.48],
+[169.0, 0.43],
+[170.0, 0.43],
+[171.0, 0.48],
+[172.0, 0.46],
+[173.0, 0.47],
+[174.0, 0.44],
+[175.0, 0.46],
+[176.0, 0.48],
+[177.0, 0.43],
+[178.0, 0.47],
+[179.0, 0.46],
+[180.0, 0.49],
+[181.0, 0.48],
+[182.0, 0.47],
+[183.0, 0.48],
+[184.0, 0.54],
+[185.0, 0.52],
+[186.0, 0.56],
+[187.0, 0.60],
+[188.0, 0.62],
+[189.0, 0.66],
+[190.0, 0.64],
+[191.0, 0.71],
+[192.0, 0.72],
+[193.0, 0.75],
+[194.0, 0.78],
+[195.0, 0.89],
+[196.0, 0.94],
+[197.0, 1.05],
+[198.0, 1.10],
+[199.0, 1.11]
+];
+
+    var plot = $.plot($("#placeholder"),
+           [ { data: data, label: "zeeman", points: { show: true }}, { data: parabola, label: "approximation", points: { show: false }} ],
+           { lines: { show: true },
+	     selection: { mode: "xy" },
+             grid: { hoverable: true, clickable: true },
+             yaxis: { min: 0.3, max: 1.4 }
+             });
+
+    function showTooltip(x, y, contents) {
+        $('<div id="tooltip">' + contents + '</div>').css( {
+            position: 'absolute',
+            display: 'none',
+            top: y + 5,
+            left: x + 5,
+            border: '1px solid #fdd',
+            padding: '2px',
+            'background-color': '#fee',
+            opacity: 0.80
+        }).appendTo("body").fadeIn(200);
+    }
+
+    var previousPoint = null;
+    $("#placeholder").bind("plothover", function (event, pos, item) {
+        $("#x").text(pos.x.toFixed(2));
+        $("#y").text(pos.y.toFixed(2));
+
+			
+	peakcoord =  paraboloidpeak(data, pos.x, peakwidth);
+    	peakx = peakcoord[0];
+        peaky = peakcoord[1];
+        $("#peakx").text(peakx.toFixed(2));
+        $("#peaky").text(peaky.toFixed(2));
+	
+
+
+
+        if ($("#enableTooltip:checked").length > 0) {
+            if (item) {
+                if (previousPoint != item.datapoint) {
+                    previousPoint = item.datapoint;
+                    
+                    $("#tooltip").remove();
+                    var x = item.datapoint[0].toFixed(2),
+                        y = item.datapoint[1].toFixed(2);
+                    showTooltip(item.pageX, item.pageY,
+                                item.series.label + " of " + x + " = " + y);
+                }
+            }
+            else {
+                $("#tooltip").remove();
+                previousPoint = null;            
+            }
+        }
+    });
+
+    $("#placeholder").bind("plotclick", function (event, pos, item) {
+        if (item) {
+
+
+
+
+		
+
+
+	peakcoord =  paraboloidpeak(data, pos.x, peakwidth);
+    	peakx = peakcoord[0];
+        peaky = peakcoord[1];
+        a = peakcoord[2];
+        b = peakcoord[3];
+        c = peakcoord[4];
+        $("#peakx").text(peakx.toFixed(2));
+        $("#peaky").text(peaky.toFixed(2));
+
+        parabola = [];
+        parabola = apxFunc ([a, b, c], 0, 200, 100);
+
+    plot = $.plot($("#placeholder"),
+           [ { data: data, label: "zeeman", points: { show: true }}, { data: parabola, label: "approximation", points: { show: false }} ],
+           { lines: { show: true },
+             selection: { mode: "xy" },
+             grid: { hoverable: true, clickable: true },
+             yaxis: { min: 0.3, max: 1.4 }
+             });
+
+
+
+
+
+            $("#clickdata").text("You clicked point " + item.dataIndex + " in " + item.series.label + ".");
+            plot.highlight(item.series, item.datapoint);
+        }
+    });
+});
+</script>
+
+ </body>
+</html>

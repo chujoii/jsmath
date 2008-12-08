@@ -74,6 +74,70 @@ Roman V. Prikhodchenko  (aka chujoii)
  
 
 
+*** Jonathan Leto [2008-12-08]
+
+Howdy,
+First, this seems really cool! But it does not seem to be totally
+working for me. The "Mouse hovers at" only updates once and the peak
+never changes from (0,0). I am using Safari on OS X. Do you have your
+code in some kind of version control?
+
+When I opened my debug console it complained about:
+
+Left side of assignment is not a reference at line 309
+
+where line 309 is:
+
+309:            [peakx, peaky, a, b, c] =  paraboloidpeak(data, pos.x, peakwidth);
+
+Let me know if you need more debugging info if you cannot reproduce.
+
+
+Cheers,
+
+- показать цитируемый текст -
+-- 
+[---------------------]
+  Jonathan Leto
+jal...@gmail.com
+
+ 
+
+
+*** chujoii [2008-12-08]
+
+> 2008/12/8 Jonathan Leto <jal...@gmail.com>
+> 
+> But it does not seem to be totally
+> working for me. The "Mouse hovers at" only updates once and the peak
+> never changes from (0,0). I am using Safari on OS X. Do you have your
+> code in some kind of version control?
+> 
+> When I opened my debug console it complained about:
+> 
+> Left side of assignment is not a reference at line 309
+> 
+> where line 309 is:
+> 
+> 309:            [peakx, peaky, a, b, c] =  paraboloidpeak(data, pos.x, peakwidth);
+
+
+Thanks for bug report.
+
+try last version 
+http://chujoii.googlepages.com/approximation.html
+http://chujoii.googlepages.com/autosearchpeak.html
+http://chujoii.googlepages.com/manualsearchpeak.html
+
+
+md5sum:
+5a852cbba350d3711b79ffd7bb438056 *approximation.js
+418a753f0cb9fdad63893098605db98c *examples/approximation.html
+95c476a77df096b209a9701ffd55f7e1 *examples/autosearchpeak.html
+46acb92f47a1b2438228a4e51394f8f4 *examples/manualsearchpeak.html
+- показать цитируемый текст -
+
+
 
 * Dependences:
   
