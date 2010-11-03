@@ -1,6 +1,6 @@
 /* Javascript approximation library for jQuery, v. 0.5.
  *
- * Released under the MIT license by chujoii, December 2008.
+ * Released under the MIT license by Roman V. Prikhodchenko aka chujoii, December 2008.
  *
  */
 
@@ -213,19 +213,19 @@ function paraboloidpeak(data, searchx, peakwidth)
 
 
 function apxFunc (coeff, xmin, xmax, num){
-	var x, y;
+	var power_of_x, sum_of_polinom;
 	var powmax = coeff.length;
 	var p;
 	var data = new Array();
 	var xmaxlimit = xmax + (xmax-xmin)/num; // add last point
 	for (var i = xmin; i < xmaxlimit; i += (xmax-xmin)/num) {
-		y = 0.0;
-		x = 1.0;
+		sum_of_polinom = 0.0;
+		power_of_x = 1.0;
 		for (p = 0; p < powmax; p += 1){
-			y += coeff[p]*x;
-			x *=i;
+			sum_of_polinom += coeff[p]*power_of_x;
+			power_of_x *=i;
 		}
-		data.push([i, y]);
+		data.push([i, sum_of_polinom]);
 	}
 	return data;
 }
@@ -239,6 +239,29 @@ function approximation(data, degreeOFApolynomial, pointsnum)
 	var start = data[0];
 	var end = data[data.length-1];
 	return apxFunc (Gaussian_elimination(GramMatrix(data, degreeOFApolynomial)), start[0], end[0], pointsnum); 
+}
+
+
+function approximation_in_point(data, degreeOFApolynomial, coord_x)
+{
+    var coeff = Gaussian_elimination(GramMatrix(data, degreeOFApolynomial)); 
+    
+    
+    
+    var power_of_x, sum_of_polinom;
+    var powmax = coeff.length;
+    
+
+    var p;
+    
+    sum_of_polinom = 0.0;
+    power_of_x = 1.0;
+    for (p = 0; p < powmax; p += 1){
+	sum_of_polinom += coeff[p]*power_of_x;
+	power_of_x *=coord_x;
+    }
+    
+    return sum_of_polinom;
 }
 
 
