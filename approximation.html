@@ -17,19 +17,37 @@
     <p>Flot support approximation (smooth). If number of data points == degree of a polynomial then it's interpolation.
     </p>
 
+    <ul>
+      <li>
+	degree of a polynomial = 1, coeff =    
+	<div class="n1">
+	  n11
+	</div>
+      <li/>
+
+      <li>
+	degree of a polynomial = 2, coeff =    
+	<div class="n2">
+	  n22
+	</div>
+      <li/>
+
+      <li>
+	degree of a polynomial = 5, coeff =    
+	<div class="n3">
+	  n22
+	</div>
+      <li/>
+    <ul/>
+
 <script id="source" language="javascript" type="text/javascript">
 
 $(function () {
     var d1 = [[0, 0.2], [2, 5], [4, 8.2], [6, 8], [8, 9.8], [10, 8.2], [12, 5]];
 
-    var d2 = approximation(d1, 2, 30);
-    var d5 = approximation(d1, 7, 100); 
-
-    var d3 = [[0, 8], [1, 7], [2, 2], [3, 0], [4, 2], [5, 4], [6, 2.5], [7, 4], [8, 4], [9, 7], [10, 7], [11, 5], [12, 0]];
-
-    var d4 = approximation(d3, 3, 30);
-
-
+    var d2 = approximation(d1, 1, 30);
+    var d3 = approximation(d1, 2, 30);
+    var d4 = approximation(d1, 5, 30);
     
     plot = $.plot($("#placeholder"), [
         {
@@ -42,19 +60,29 @@ $(function () {
         },
         {
             data: d3,
-            points: { show: true },
             lines: { show: true }
         },
         {
             data: d4,
             lines: { show: true }
-        },
-        {
-            data: d5,
-            lines: { show: true }
         }
     ]);
+
+
+
+var a1 = calculate_approximation_coeff(d1, 1);
+var a2 = calculate_approximation_coeff(d1, 2);
+var a3 = calculate_approximation_coeff(d1, 5);
+$("div.n1").text(a1.join(' '));
+$("div.n2").text(a2.join(' '));
+$("div.n3").text(a3.join(' '));
+
 });
+
+
+
+
+
 </script>
 
  </body>

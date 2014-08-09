@@ -140,5 +140,13 @@ md5sum:
 
 
 * Dependences:
+  flot and jquery ()
+** flot
+   http://code.google.com/p/flot/
+   or 
+   http://www.flotcharts.org/
+** jquery
+   jquery.com
+
   
 

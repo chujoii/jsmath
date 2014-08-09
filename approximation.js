@@ -230,6 +230,10 @@ function apxFunc (coeff, xmin, xmax, num){
 	return data;
 }
 
+function calculate_approximation_coeff(data, degreeOFApolynomial)
+{
+    return Gaussian_elimination(GramMatrix(data, degreeOFApolynomial)); 
+}
 
 function approximation(data, degreeOFApolynomial, pointsnum)
 {
@@ -238,13 +242,13 @@ function approximation(data, degreeOFApolynomial, pointsnum)
 	
 	var start = data[0];
 	var end = data[data.length-1];
-	return apxFunc (Gaussian_elimination(GramMatrix(data, degreeOFApolynomial)), start[0], end[0], pointsnum); 
+	return apxFunc (calculate_approximation_coeff(data, degreeOFApolynomial), start[0], end[0], pointsnum); 
 }
 
 
 function approximation_in_point(data, degreeOFApolynomial, coord_x)
 {
-    var coeff = Gaussian_elimination(GramMatrix(data, degreeOFApolynomial)); 
+    var coeff = calculate_approximation_coeff(data, degreeOFApolynomial); 
     
     
     
