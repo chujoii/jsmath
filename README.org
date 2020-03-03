@@ -10,25 +10,24 @@ Author: Roman V. Prikhodchenko <chujoii@gmail.com>
 This file is part of jsmath.
   
 * Keywords:
-  smooth approximation peak search graph js java script jquery flot
-
-
+smooth approximation interpolation peak search graph array js JavaScript jQuery Flot
 
 * Description:
-  
+Approximation, interpolation and peak search for JavaScript, and view (with jQuery and Flot) it, as graph of a function.
 
 * Usage:
-  use it
-
-
+see "Dependences" section: download jquery.js and jquery.flot.js
+to "flot" directory.
+View approximation.html, autosearchpeak.html and manualsearchpeak.html
+in browser with JavaScript support.
 
 * History:
-  Initial project version began about 2008-12(Dec)-07
+Initial project version began about 2008-12(Dec)-07
 
 
-** flot newsgroups "Proposal : Smoothing lines"
-  https://groups.google.com/forum/?fromgroups#!topic/flot-graphs/Ug4wvfE5XYk
-  
+** flot newsgroups:
+[[https://groups.google.com/forum/?fromgroups#!topic/flot-graphs/Ug4wvfE5XYk]["Proposal : Smoothing lines"]]
+#+BEGIN_COMMENT
 *** chujoii [2008-12-07]
 
 I recently create a javascript version of approximation by polynomials.
@@ -126,17 +125,9 @@ md5sum:
 95c476a77df096b209a9701ffd55f7e1 *examples/autosearchpeak.html
 46acb92f47a1b2438228a4e51394f8f4 *examples/manualsearchpeak.html
 - показать цитируемый текст -
-
-
-
+#+END_COMMENT
 * Dependences:
-  flot and jquery ()
-** flot
-   http://code.google.com/p/flot/
-   or 
-   http://www.flotcharts.org/
-** jquery
-   jquery.com
-
-  
-
+** [[http://www.flotcharts.org/][Flot]] ([[https://github.com/flot/flot][git]])
+tested with version 0.5
+** [[https://jquery.com/][jQuery]] ([[https://github.com/jquery/jquery][git]])
+tested with version 1.2.3
