@@ -226,14 +226,17 @@ $(function () {
 [200, 0.31]
 ];
 
-    $.plot($("#placeholder"), [ d1 ]);
-
+    var markings = [];
     var yLevel = 0.6;
     //yLevel = autoYmean(d1);
     var peaks = searchPeak(d1, yLevel, 10);
     var txt = " ";
-    for (var i = 0; i < peaks.length; ++i) 
-        txt += "[" + peaks[i][0].toFixed(2) + ", " + peaks[i][1].toFixed(2) + "] ";
+    for (var i = 0; i < peaks.length; ++i) {
+	txt += "[" + peaks[i][0].toFixed(2) + ", " + peaks[i][1].toFixed(2) + "] ";
+	markings.push({ color: "#000", lineWidth: 1, xaxis: { from: peaks[i][0], to: peaks[i][0] } });
+    }
+    $.plot($("#placeholder"), [ d1 ],
+	{ grid: { markings: markings }});
     $("#peaklist").text(txt);
 
 
