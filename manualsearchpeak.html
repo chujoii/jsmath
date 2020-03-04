@@ -291,8 +291,9 @@ var data = [];
 		   $("#peaky").text(peaky.toFixed(2));
 		   ePosition.x = peakx;
 		   ePosition.y = peaky;
-		   //plot.clearCrosshair();
 		   plot.setCrosshair(ePosition);
+	} else {
+		   plot.clearCrosshair();
 	}
 
         if ($("#enableTooltip:checked").length > 0) {
@@ -303,7 +304,7 @@ var data = [];
                     $("#tooltip").remove();
                     var x = item.datapoint[0].toFixed(2),
                         y = item.datapoint[1].toFixed(2);
-                    showTooltip(item.pageX, item.pageY,
+                    showTooltip(item.pageX, item.pageY + 20,
                                 item.series.label + " of " + x + " = " + y);
                 }
             }
