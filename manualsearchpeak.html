@@ -26,6 +26,7 @@
     data returned from the plot.</p>
 
     <p><input id="enableTooltip" type="checkbox">Enable tooltip</p>
+    <p><input type="text" id="peakwidth" size="3" value="5"/>Set prospective peak width</p>
 
 <script id="source" language="javascript" type="text/javascript">
 $(function () {
@@ -276,7 +277,7 @@ var data = [];
         $("#x").text(pos.x.toFixed(2));
         $("#y").text(pos.y.toFixed(2));
 
-			
+	peakwidth = Number($('#peakwidth').val());
 	peakcoord =  paraboloidpeak(data, pos.x, peakwidth);
     	peakx = peakcoord[0];
         peaky = peakcoord[1];
@@ -331,7 +332,7 @@ var data = [];
 
 		
 
-
+        peakwidth = Number($('#peakwidth').val());
 	peakcoord =  paraboloidpeak(data, pos.x, peakwidth);
     	peakx = peakcoord[0];
         peaky = peakcoord[1];
