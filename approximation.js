@@ -1,6 +1,7 @@
 /* Javascript approximation library for jQuery, v. 0.5.
  *
- * Released under the MIT license by Roman V. Prikhodchenko aka chujoii, December 2008.
+ * Released under the MIT License (MIT)
+ * Copyright (c) 2008-present, Roman V. Prikhodchenko <chujoii@gmail.com>
  *
  */
 
