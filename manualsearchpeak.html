@@ -310,6 +310,16 @@ var data = [];
                 $("#tooltip").remove();
                 previousPoint = null;            
             }
+
+            parabola = [];
+            parabola = apxFunc ([a, b, c], 0, 200, 100);
+            plot = $.plot($("#placeholder"),
+			[ { data: data, label: "zeeman", points: { show: true }}, { data: parabola, label: "approximation", points: { show: false }} ],
+			{ lines: { show: true },
+			crosshair: { mode: "xyz" },
+			grid: { hoverable: true, clickable: true },
+			yaxis: { min: 0.3, max: 1.4 }
+			});
         }
     });
 
