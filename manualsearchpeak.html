@@ -2,7 +2,7 @@
 <html>
  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Flot Examples</title>
+    <title>Manual search peak</title>
     <link href="layout.css" rel="stylesheet" type="text/css"></link>
     <!--[if IE]><script language="javascript" type="text/javascript" src="flot/excanvas.pack.js"></script><![endif]-->
     <script language="javascript" type="text/javascript" src="flot/jquery.js"></script>
@@ -10,23 +10,22 @@
     <script language="javascript" type="text/javascript" src="approximation.js"></script>
  </head>
     <body>
-    <h1>Flot Examples</h1>
+    <h1>Manual search peak</h1>
 
     <div id="placeholder" style="width:600px;height:300px"></div>
 
-    <p>One of the goals of Flot is to support user interactions. Try
-    pointing and clicking on the points.</p>
+    <p>In this graph you can see data form
+    <a href="https://en.wikipedia.org/wiki/File:Transverse_Zeeman_effect.jpg">Transverse Zeeman effect</a></p>
+
+    <p>Approximation algorithm search peak near mouse cursor</p>
 
     <p id="hoverdata">Mouse hovers at
     (<span id="x">0</span>, <span id="y">0</span>). 
       Peak: (<span id="peakx">0</span>, <span id="peaky">0</span>)
       <span id="clickdata"></span></p>
 
-    <p>A tooltip is easy to build with a bit of jQuery code and the
-    data returned from the plot.</p>
-
-    <p><input id="enableTooltip" type="checkbox">Enable tooltip</p>
-    <p><input type="text" id="peakwidth" size="3" value="5"/>Set prospective peak width</p>
+    <p><input id="enableTooltip" type="checkbox" checked>Display parabola and data used in approximation algorithm</p>
+    <p><input type="text" id="peakwidth" size="3" value="10"/>Set prospective peak half-width</p>
 
 <script id="source" language="javascript" type="text/javascript">
 $(function () {
