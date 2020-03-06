@@ -316,7 +316,10 @@ var data = [];
             parabola = [];
             parabola = apxFunc ([a, b, c], 0, 200, 100);
             plot = $.plot($("#placeholder"),
-			[ { data: data, label: "zeeman", points: { show: true }}, { data: parabola, label: "approximation", points: { show: false }} ],
+			[ { data: data, label: "zeeman", points: { show: true }},
+			  { data: data.filter((item, index, array) => ((pos.x - peakwidth) < item[0] && item[0] < (pos.x + peakwidth))),
+			    label: "search area", points: { show: true }},
+			  { data: parabola, label: "approximation", points: { show: false }} ],
 			{ lines: { show: true },
 			crosshair: { mode: "xyz" },
 			grid: { hoverable: true, clickable: true },
